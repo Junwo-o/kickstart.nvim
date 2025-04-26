@@ -821,7 +821,7 @@ require('lazy').setup({
         vim.cmd 'colorscheme gruvbox'
       else
         vim.opt.termguicolors = false
-        vim.cmd 'colorscheme desert' -- fallback for 256-color terminals
+        vim.cmd 'colorscheme koehler' -- fallback for 256-color terminals
       end
     end,
   },
