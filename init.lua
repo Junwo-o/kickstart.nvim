@@ -79,13 +79,12 @@ vim.opt.confirm = true
 --  See `:help vim.keymap.set()`
 
 -- My Keymaps
-
 vim.keymap.set('n', '<leader>rj', ':w<CR>:!javac % && java %:r<CR>', { desc = 'Run Java file' })
 vim.keymap.set('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { desc = 'Run Python file' })
 
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit window' })
-vim.keymap.set('n', '<leader>z', ':wq<CR>', { desc = 'Save and Quit' })
+vim.keymap.set('n', '<leader>x', ':wq<CR>', { desc = 'Save and Quit' })
 
 vim.keymap.set('n', '<C-S-j>', ':m .+1<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<C-S-k>', ':m .-2<CR>==', { desc = 'Move line up' })
@@ -96,6 +95,12 @@ vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
 vim.keymap.set('n', '<leader>bn', ':enew<CR>', { desc = 'New empty buffer' })
 vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete current buffer' })
+
+vim.keymap.set('i', '(', '()<Left>')
+vim.keymap.set('i', '[', '[]<Left>')
+vim.keymap.set('i', '{', '{}<Left>')
+vim.keymap.set('i', "'", "''<Left>")
+vim.keymap.set('i', '"', '""<Left>')
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
