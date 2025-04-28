@@ -85,6 +85,7 @@ vim.keymap.set('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { desc = 'Run Python 
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit window' })
 vim.keymap.set('n', '<leader>x', ':wq<CR>', { desc = 'Save and Quit' })
+vim.keymap.set('n', '<leader>e', ':e<Space>', { desc = 'Edit file' })
 
 vim.keymap.set('n', '<C-S-j>', ':m .+1<CR>==', { desc = 'Move line down' })
 vim.keymap.set('n', '<C-S-k>', ':m .-2<CR>==', { desc = 'Move line up' })
