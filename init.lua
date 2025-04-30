@@ -80,11 +80,13 @@ vim.opt.confirm = true
 
 -- My Keymaps
 vim.keymap.set('n', '<leader>rj', ':w<CR>:!javac % && java %:r<CR>', { desc = 'Run Java file' })
-vim.keymap.set('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { desc = 'Run Python file' })
+vim.keymap.set('n', '<leader>rp', '<cmd>w<CR><cmd>term python3 %<CR>', { desc = 'Run Python file with input' })
+-- vim.keymap.set('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { desc = 'Run Python file' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Save file' })
-vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit window' })
-vim.keymap.set('n', '<leader>x', ':wq<CR>', { desc = 'Save and Quit' })
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit window' })
+vim.keymap.set('n', '<leader>x', '<cmd>wq<CR>', { desc = 'Save and Quit' })
 vim.keymap.set('n', '<leader>e', ':e<Space>', { desc = 'Edit file' })
 
 vim.keymap.set('n', '<C-S-j>', ':m .+1<CR>==', { desc = 'Move line down' })
@@ -92,10 +94,10 @@ vim.keymap.set('n', '<C-S-k>', ':m .-2<CR>==', { desc = 'Move line up' })
 vim.keymap.set('v', '<C-S-j>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<C-S-k>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 
-vim.keymap.set('n', '<Tab>', ':bnext<CR>', { desc = 'Next buffer' })
-vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', { desc = 'Previous buffer' })
-vim.keymap.set('n', '<leader>bn', ':enew<CR>', { desc = 'New empty buffer' })
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete current buffer' })
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>bn', '<cmd>enew<CR>', { desc = 'New empty buffer' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<CR>', { desc = 'Delete current buffer' })
 
 vim.keymap.set('i', '(', '()<Left>')
 vim.keymap.set('i', '[', '[]<Left>')
