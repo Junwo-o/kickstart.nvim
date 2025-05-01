@@ -81,7 +81,12 @@ vim.opt.confirm = true
 -- My Keymaps
 vim.keymap.set('n', '<leader>rj', ':w<CR>:!javac % && java %:r<CR>', { desc = 'Run Java file' })
 vim.keymap.set('n', '<leader>rp', '<cmd>w<CR><cmd>term python3 %<CR>', { desc = 'Run Python file with input' })
+vim.api.nvim_create_user_command('OpenHTML', function()
+  vim.cmd('!open ' .. vim.fn.expand '%')
+end, {})
+vim.keymap.set('n', '<leader>rh', ':OpenHTML<CR>', { desc = 'Open HTML in browser' })
 -- vim.keymap.set('n', '<leader>rp', ':w<CR>:!python3 %<CR>', { desc = 'Run Python file' })
+
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
