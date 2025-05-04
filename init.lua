@@ -185,9 +185,34 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+
+  'ThePrimeagen/vim-be-good',
+
   {
-    'ThePrimeagen/vim-be-good',
+    'tpope/vim-fugitive',
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>gs', ':G<cr>', desc = 'git status' },
+      { '<leader>gC', ':G commit<cr>', desc = 'git commit' },
+      { '<leader>gp', ':G push<cr>', desc = 'git push' },
+      { '<leader>gl', ':G pull<cr>', desc = 'git pull' },
+      { '<leader>gb', ':G blame<cr>', desc = 'git blame' },
+      { '<leader>gd', ':G diffsplit<cr>', desc = 'git diff split' },
+      { '<leader>ga', ':Gwrite<CR>', desc = 'Git add (stage current file)' },
+      { '<leader>gA', ':G add .<CR>', desc = 'Git add all' },
+      {
+        '<leader>gc',
+        function()
+          local msg = vim.fn.input 'Commit message: '
+          if msg ~= '' then
+            vim.cmd('G commit -m "' .. msg:gsub('"', '\\"') .. '"')
+          end
+        end,
+        desc = 'Git commit with custom message',
+      },
+    },
   },
+
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
