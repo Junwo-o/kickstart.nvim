@@ -193,23 +193,13 @@ require('lazy').setup({
     event = 'VeryLazy',
     keys = {
       { '<leader>gs', ':G<cr>', desc = 'git status' },
-      { '<leader>gC', ':G commit<cr>', desc = 'git commit' },
+      { '<leader>gc', ':G commit<cr>', desc = 'git commit' },
       { '<leader>gp', ':G push<cr>', desc = 'git push' },
       { '<leader>gl', ':G pull<cr>', desc = 'git pull' },
       { '<leader>gb', ':G blame<cr>', desc = 'git blame' },
       { '<leader>gd', ':G diffsplit<cr>', desc = 'git diff split' },
       { '<leader>ga', ':Gwrite<CR>', desc = 'Git add (stage current file)' },
       { '<leader>gA', ':G add .<CR>', desc = 'Git add all' },
-      {
-        '<leader>gc',
-        function()
-          local msg = vim.fn.input 'Commit message: '
-          if msg ~= '' then
-            vim.cmd('G commit -m "' .. msg:gsub('"', '\\"') .. '"')
-          end
-        end,
-        desc = 'Git commit with custom message',
-      },
     },
   },
 
