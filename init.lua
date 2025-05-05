@@ -1,16 +1,22 @@
+-- ordinary Neovim
+-- set <space> as the leader key
+-- see `:help mapleader`
+-- NOTE: must happen before plugins are loaded (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- sync clipboard between os and neovim.
+--  schedule the setting after `uienter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
+
 if vim.g.vscode then
   -- VSCode extension
-  vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
-  end)
+  vim.keymap.set('n', '<leader>w', ':w | echo "File Saved"<CR>', { desc = 'Save file' })
 else
-  -- ordinary Neovim
-  -- set <space> as the leader key
-  -- see `:help mapleader`
-  -- NOTE: must happen before plugins are loaded (otherwise wrong leader will be used)
-  vim.g.mapleader = ' '
-  vim.g.maplocalleader = ' '
-
   -- set to true if you have a nerd font installed and selected in the terminal
   vim.g.have_nerd_font = false
 
@@ -30,14 +36,6 @@ else
 
   -- don't show the mode, since it's already in the status line
   vim.opt.showmode = false
-
-  -- sync clipboard between os and neovim.
-  --  schedule the setting after `uienter` because it can increase startup-time.
-  --  Remove this option if you want your OS clipboard to remain independent.
-  --  See `:help 'clipboard'`
-  vim.schedule(function()
-    vim.opt.clipboard = 'unnamedplus'
-  end)
 
   -- Enable break indent
   vim.opt.breakindent = true
@@ -877,7 +875,7 @@ else
           vim.cmd 'colorscheme gruvbox'
         else
           vim.opt.termguicolors = false
-          vim.cmd 'colorscheme koehler' -- fallback for 256-color terminals
+          vim.cmd 'colorscheme slate' -- fallback for 256-color terminals
         end
       end,
     },
