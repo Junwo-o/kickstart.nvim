@@ -1,5 +1,8 @@
 if vim.g.vscode then
   -- VSCode extension
+  vim.schedule(function()
+    vim.opt.clipboard = 'unnamedplus'
+  end)
 else
   -- ordinary Neovim
   -- set <space> as the leader key
